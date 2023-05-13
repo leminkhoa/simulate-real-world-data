@@ -1,0 +1,4 @@
+faker
+jinja2
+pyyaml
+psycopg2

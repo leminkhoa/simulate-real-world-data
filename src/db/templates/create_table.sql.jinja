@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS {{ db_schema }}.{{ table_name }}
+    {%- set comma = joiner(",") %}
+    {%- for col, properties in table_schema.items() %}{{ comma() }}
+    {{ col }} {{ properties['type'] }} {% if properties['primary_key'] %}PRIMARY KEY{% endif %}
+    {%- endfor -%}

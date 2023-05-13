@@ -1,0 +1,35 @@
+steps:
+  - template: create_db_schema
+    data: 
+      schema_name: dim_db
+  - template: create_table
+    data:
+      db_schema: dim_db
+      table_name: customers
+      table_schema:
+        customer_id:        {type: string, primary_key: True}
+        gender:             {type: string                   }
+        first_name:         {type: string                   }
+        last_name:          {type: string                   }
+        yob:                {type: int                      }
+        phone_number:       {type: string                   }
+        job:                {type: string                   }
+        address:            {type: string                   }
+        first_transaction:  {type: date                     }
+        membership:         {type: string                   }
+
+  - template: create_table
+    data:
+      db_schema: dim_db
+      table_name: sdfas
+      table_schema:
+        customer_id:        {type: string, primary_key: True}
+        gender:             {type: string                   }
+        first_name:         {type: string                   }
+        last_name:          {type: string                   }
+        yob:                {type: int                      }
+        phone_number:       {type: string                   }
+        job:                {type: string                   }
+        address:            {type: string                   }
+        first_transaction:  {type: date                     }
+        membership:         {type: string                   }
