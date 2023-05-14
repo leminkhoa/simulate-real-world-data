@@ -1,6 +1,6 @@
 import uuid
 from faker import Faker
-from custom_providers import *
+from .custom_providers import *
 
 faker = Faker(use_weighting=True)
 faker.add_provider(GenderProvider)
@@ -42,7 +42,7 @@ def generate_customers(n=10):
         company = faker.company().split()[0].strip(',')
         customer['email'] = f"{first_name}_{last_name}@{company}.{faker.domain()}".lower()
         # yob
-        customer['yob'] = faker.date_of_birth(minimum_age=18, maximum_age=60)
+        customer['yob'] = faker.date_of_birth(minimum_age=18, maximum_age=60).strftime('%Y-%m-%d')
         # phone number
         customer['phone_number'] = faker.phone_number()
         # profile
@@ -50,7 +50,7 @@ def generate_customers(n=10):
         # address
         customer['address'] = faker.street_address()
         # first_transaction
-        customer['first_transaction'] = faker.past_date(start_date='-14d')
+        customer['first_transaction'] = faker.past_date(start_date='-14d').strftime('%Y-%m-%d')
         # membership
         customer['membership'] = faker.membership()
 

@@ -2,34 +2,31 @@ steps:
   - template: create_db_schema
     data: 
       schema_name: dim_db
+
   - template: create_table
     data:
       db_schema: dim_db
       table_name: customers
       table_schema:
-        customer_id:        {type: string, primary_key: True}
-        gender:             {type: string                   }
-        first_name:         {type: string                   }
-        last_name:          {type: string                   }
-        yob:                {type: int                      }
-        phone_number:       {type: string                   }
-        job:                {type: string                   }
-        address:            {type: string                   }
-        first_transaction:  {type: date                     }
-        membership:         {type: string                   }
+        customer_id:        {type: text, primary_key: True}
+        gender:             {type: text                   }
+        first_name:         {type: text                   }
+        last_name:          {type: text                   }
+        email:              {type: text                   }
+        yob:                {type: date                   }
+        phone_number:       {type: text                   }
+        job:                {type: text                   }
+        address:            {type: text                   }
+        first_transaction:  {type: date                   }
+        membership:         {type: text                   }
 
   - template: create_table
     data:
       db_schema: dim_db
-      table_name: sdfas
+      table_name: stores
       table_schema:
-        customer_id:        {type: string, primary_key: True}
-        gender:             {type: string                   }
-        first_name:         {type: string                   }
-        last_name:          {type: string                   }
-        yob:                {type: int                      }
-        phone_number:       {type: string                   }
-        job:                {type: string                   }
-        address:            {type: string                   }
-        first_transaction:  {type: date                     }
-        membership:         {type: string                   }
+        id:       {type: int, primary_key: True, auto_key: True}
+        name:     {type: text                                   }
+        address:  {type: text                                   }
+        phone:    {type: text                                   }
+        email:    {type: text                                   }

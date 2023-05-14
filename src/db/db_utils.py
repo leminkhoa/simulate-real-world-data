@@ -1,36 +1,67 @@
 import yaml
 import os
 import psycopg2
+from psycopg2.extensions import AsIs
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 
 class DatabaseObject(object):
-    user            =   os.environ.get('DB_USER' ,      'test'      )
-    password        =   os.environ.get('DB_PASSWORD',   'test'      )
-    host            =   os.environ.get('DB_HOSTNAME',   'localhost' )
-    database        =   os.environ.get('DB_DATABASE',   'test'      )
-    port            =   os.environ.get('DB_PORT',       '5432'      )
     
     def __init__(self):
+        self.user       =   os.environ.get('DB_USER' ,      'postgres'      )
+        self.password   =   os.environ.get('DB_PASSWORD',   'abc'           )
+        self.host       =   os.environ.get('DB_HOSTNAME',   'localhost'     )
+        self.database   =   os.environ.get('DB_DATABASE',   'operation'      )
+        self.port       =   os.environ.get('DB_PORT',       '5432'          )    
+
+    def connect(self):
         self.conn = psycopg2.connect(
                             user=self.user,
                             password = self.password,
                             host = self.host,
                             database = self.database,
-                            port = self.port)
+                            port = self.port
+                        )
         self.cur = self.conn.cursor()
 
     def execute(self, query):
         # Create table to insert
         self.cur.execute(query)
         self.conn.commit()
+
+    def fetch(self, query, size=100):
+        self.cur.execute(query)
+        row = self.cur.fetchmany(size)
+        return row
+    
+    def insert(self, data, schema, table_name):
+        sql = f'''INSERT INTO {schema}.{table_name} (%s) values %s'''
+        success_recs = 0
+        for row in data:
+            try:
+                self.cur.execute(
+                sql, 
+                    (
+                        AsIs(','.join(row.keys())), 
+                        tuple(row.values())
+                    )
+                )
+            except Exception:
+                continue
+            success_recs +=1
+        self.conn.commit()
+        return success_recs
+
     
     def close_conn(self):
         self.cur.close()
         self.conn.close() 
-    
-def generate_sql_queries(db_config, template_folder):
-    env = load_template(template_folder)
+
+
+def generate_sql_queries(db_folder: str, config_path: str, template_folder: str):
+    env = load_template(os.path.join(db_folder, template_folder))
+    db_config = parse_yaml(db_folder, config_path)
+
     sql_queries = []
     for step in db_config['steps']:
         template = env.get_template(f"{step['template']}.sql.jinja")
