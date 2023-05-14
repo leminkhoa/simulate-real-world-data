@@ -30,3 +30,14 @@ steps:
         address:  {type: text                                   }
         phone:    {type: text                                   }
         email:    {type: text                                   }
+
+  - template: create_table
+    data:
+      db_schema: dim_db
+      table_name: staffs
+      table_schema:
+        staff_id:       {type: int, primary_key: True           }
+        gender:         {type: text                             }
+        first_name:     {type: text                             }
+        last_name:      {type: text                             }
+        store_id:       {type: text                             }

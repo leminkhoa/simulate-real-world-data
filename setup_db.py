@@ -6,7 +6,7 @@ logger = create_logger()
 if __name__ == '__main__':
     db_obj = db_utils.DatabaseObject()
     db_obj.connect()
-    logger.info("Successfully connected to database '{db}'".format(db=db_obj.database.upper()))
+    logger.info("Successfully connected to database '{db_host}-{db}'".format(db_host=db_obj.host, db=db_obj.database.upper()))
     # Generate db queries
     db_setup_queries = db_utils.generate_sql_queries('src/db', 'db_init.yml', 'templates')
     # Execute set up

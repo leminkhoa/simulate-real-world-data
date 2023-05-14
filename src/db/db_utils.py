@@ -25,7 +25,6 @@ class DatabaseObject(object):
         self.cur = self.conn.cursor()
 
     def execute(self, query):
-        # Create table to insert
         self.cur.execute(query)
         self.conn.commit()
 

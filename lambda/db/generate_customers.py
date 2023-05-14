@@ -54,6 +54,8 @@ def upload_file(db_obj, data, schema, table):
         logger.error(error)
     return success_recs
 
+'''
+# ===== Test Event ==== 
 
 event = {
     "queryStringParameters": {
@@ -61,5 +63,4 @@ event = {
     }
 }
 
-x = lambda_handler(event, None)
-print(x)
+'''
