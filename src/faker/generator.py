@@ -61,7 +61,7 @@ def generate_customers(n=10):
     return output
 
 
-def generate_staffs(store_id, n=2):
+def generate_staffs(store_id: int, n=2):
     output = []
     for _ in range(n):
         staff = dict()

@@ -36,7 +36,7 @@ steps:
       db_schema: dim_db
       table_name: staffs
       table_schema:
-        staff_id:       {type: int, primary_key: True           }
+        staff_id:       {type: text, primary_key: True           }
         gender:         {type: text                             }
         first_name:     {type: text                             }
         last_name:      {type: text                             }
