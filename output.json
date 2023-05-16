@@ -1,0 +1,372 @@
+[
+    {
+        "transaction_id": "5021b660f7344d649983e38dd305ec8d",
+        "store": {
+            "id": 6,
+            "name": "Wind Worry"
+        },
+        "customer": {
+            "id": "d16667b0effc4a769f1ad612c3947007",
+            "gender": "female",
+            "first_name": "Michelle",
+            "last_name": "Smith",
+            "email": "michelle_smith@kim.gov"
+        },
+        "staff": {
+            "id": "fa14e519bc1b40a087091541f0f130b4",
+            "first_name": "Stephen",
+            "last_name": "Scott"
+        },
+        "transaction": [
+            {
+                "item_id": "2dfa27db6da34791ae02af45676f1c56",
+                "quantity": 1,
+                "product_name": "Fantastic Dresser",
+                "category": "Furniture",
+                "unit_price": "474"
+            }
+        ],
+        "purchased_number_items": 1,
+        "total_amount": 474
+    },
+    {
+        "transaction_id": "afdacf69af6a44e080a1e484a11c4c93",
+        "store": {
+            "id": 4,
+            "name": "Take Crime"
+        },
+        "customer": {
+            "id": "0cde473994004695a970e18b9305b881",
+            "gender": "female",
+            "first_name": "Rebecca",
+            "last_name": "Garcia",
+            "email": "rebecca_garcia@herrera.com"
+        },
+        "staff": {
+            "id": "1981282b693f4343abb192e0cf9c982e",
+            "first_name": "Mary",
+            "last_name": "Huang"
+        },
+        "transaction": [
+            {
+                "item_id": "a08cdadefe95407a84c4adf114ccdd59",
+                "quantity": 2,
+                "product_name": "Generic Board Game",
+                "category": "Toy",
+                "unit_price": "213"
+            },
+            {
+                "item_id": "1f7e3d81357744ca8258a24ea85f9e80",
+                "quantity": 1,
+                "product_name": "Wooden Running Shoes",
+                "category": "Sport",
+                "unit_price": "261"
+            }
+        ],
+        "purchased_number_items": 2,
+        "total_amount": 687
+    },
+    {
+        "transaction_id": "744fa3cfe2e143e2b7e451ce0405675f",
+        "store": {
+            "id": 4,
+            "name": "Take Crime"
+        },
+        "customer": {
+            "id": "7d1aeb76fbb04a4f9f46f1169463a31f",
+            "gender": "female",
+            "first_name": "Joy",
+            "last_name": "Gutierrez",
+            "email": "joy_gutierrez@tate.gov"
+        },
+        "staff": {
+            "id": "f1cdc25fb1664032b31a99eab4d8ce9f",
+            "first_name": "Carolyn",
+            "last_name": "Hahn"
+        },
+        "transaction": [
+            {
+                "item_id": "e1cc6d6b1f9848b1bf7ab17de326b43b",
+                "quantity": 1,
+                "product_name": "Green Desk",
+                "category": "Furniture",
+                "unit_price": "328"
+            },
+            {
+                "item_id": "e6d5bb5491e94c69a44cbf830f647772",
+                "quantity": 1,
+                "product_name": "Sleek Play-Doh",
+                "category": "Toy",
+                "unit_price": "384"
+            },
+            {
+                "item_id": "2ae623ed82f14187b4e73331a965f95f",
+                "quantity": 1,
+                "product_name": "Awesome Desk",
+                "category": "Furniture",
+                "unit_price": "240"
+            }
+        ],
+        "purchased_number_items": 3,
+        "total_amount": 952
+    },
+    {
+        "transaction_id": "ddf90556400241b1b75538ba3c85b0ab",
+        "store": {
+            "id": 3,
+            "name": "Worker Similar"
+        },
+        "customer": {
+            "id": "4ec698ddf2ed4eff9de3f5d503f8f46c",
+            "gender": "male",
+            "first_name": "Donald",
+            "last_name": "Sullivan",
+            "email": "donald_sullivan@chapman.com"
+        },
+        "staff": {
+            "id": "89546eba325c45e18a1757f278482eb6",
+            "first_name": "Joshua",
+            "last_name": "Brooks"
+        },
+        "transaction": [
+            {
+                "item_id": "e04dc598b2944da896a8e8e7515f70e9",
+                "quantity": 1,
+                "product_name": "Awesome Black Soft Wardrobe",
+                "category": "Furniture",
+                "unit_price": "260"
+            }
+        ],
+        "purchased_number_items": 1,
+        "total_amount": 260
+    },
+    {
+        "transaction_id": "95121b22cc974527a11ba8c2f9013f3f",
+        "store": {
+            "id": 6,
+            "name": "Wind Worry"
+        },
+        "customer": {
+            "id": "7bdeeb095f56462cbc8f80d81ab0cd63",
+            "gender": "male",
+            "first_name": "Joseph",
+            "last_name": "Moore",
+            "email": "joseph_moore@hawkins.org"
+        },
+        "staff": {
+            "id": "89546eba325c45e18a1757f278482eb6",
+            "first_name": "Joshua",
+            "last_name": "Brooks"
+        },
+        "transaction": [
+            {
+                "item_id": "e04dc598b2944da896a8e8e7515f70e9",
+                "quantity": 1,
+                "product_name": "Awesome Black Soft Wardrobe",
+                "category": "Furniture",
+                "unit_price": "260"
+            },
+            {
+                "item_id": "e6d5bb5491e94c69a44cbf830f647772",
+                "quantity": 2,
+                "product_name": "Sleek Play-Doh",
+                "category": "Toy",
+                "unit_price": "384"
+            }
+        ],
+        "purchased_number_items": 2,
+        "total_amount": 1028
+    },
+    {
+        "transaction_id": "4691a7d7df1747ff97dac410029918e7",
+        "store": {
+            "id": 3,
+            "name": "Worker Similar"
+        },
+        "customer": {
+            "id": "1ef8f118854746b7a9c6387f7b425063",
+            "gender": "female",
+            "first_name": "Jennifer",
+            "last_name": "Steele",
+            "email": "jennifer_steele@spencer-hernandez.gov"
+        },
+        "staff": {
+            "id": "0131105c7def4fa4b52ae82367aeccb6",
+            "first_name": "Michelle",
+            "last_name": "Fox"
+        },
+        "transaction": [
+            {
+                "item_id": "d3c5e5ecfa924ef4b48675187f4ddc8b",
+                "quantity": 1,
+                "product_name": "Sleek Desk",
+                "category": "Furniture",
+                "unit_price": "352"
+            },
+            {
+                "item_id": "e1cc6d6b1f9848b1bf7ab17de326b43b",
+                "quantity": 1,
+                "product_name": "Green Desk",
+                "category": "Furniture",
+                "unit_price": "328"
+            }
+        ],
+        "purchased_number_items": 2,
+        "total_amount": 680
+    },
+    {
+        "transaction_id": "cda8f8c7124f42529a52513d8fc6a392",
+        "store": {
+            "id": 4,
+            "name": "Take Crime"
+        },
+        "customer": {
+            "id": "1136952b5ffc4c41b8443175d23b2f69",
+            "gender": "male",
+            "first_name": "Michael",
+            "last_name": "King",
+            "email": "michael_king@griffin.com"
+        },
+        "staff": {
+            "id": "deadbff864b44e71b180d95fecb5ea3d",
+            "first_name": "Keith",
+            "last_name": "Prince"
+        },
+        "transaction": [
+            {
+                "item_id": "6fbfe85efaf84a1a9931266b40d17e19",
+                "quantity": 1,
+                "product_name": "Wooden Remote Control Car",
+                "category": "Toy",
+                "unit_price": "322"
+            }
+        ],
+        "purchased_number_items": 1,
+        "total_amount": 322
+    },
+    {
+        "transaction_id": "ecae0885a60c470b9816fb6d32a0c6b8",
+        "store": {
+            "id": 3,
+            "name": "Worker Similar"
+        },
+        "customer": {
+            "id": "fedd80e053e04f90906db5d38cc52cb0",
+            "gender": "female",
+            "first_name": "Jessica",
+            "last_name": "Thomas",
+            "email": "jessica_thomas@cook-berg.com"
+        },
+        "staff": {
+            "id": "7c7a964b68b1424b8d658ac6157a16fe",
+            "first_name": "Claudia",
+            "last_name": "Rice"
+        },
+        "transaction": [
+            {
+                "item_id": "2ae623ed82f14187b4e73331a965f95f",
+                "quantity": 1,
+                "product_name": "Awesome Desk",
+                "category": "Furniture",
+                "unit_price": "240"
+            },
+            {
+                "item_id": "d3c5e5ecfa924ef4b48675187f4ddc8b",
+                "quantity": 1,
+                "product_name": "Sleek Desk",
+                "category": "Furniture",
+                "unit_price": "352"
+            },
+            {
+                "item_id": "1f7e3d81357744ca8258a24ea85f9e80",
+                "quantity": 1,
+                "product_name": "Wooden Running Shoes",
+                "category": "Sport",
+                "unit_price": "261"
+            }
+        ],
+        "purchased_number_items": 3,
+        "total_amount": 853
+    },
+    {
+        "transaction_id": "1dfe63ad27a14fcd905b80f13f6683e9",
+        "store": {
+            "id": 3,
+            "name": "Worker Similar"
+        },
+        "customer": {
+            "id": "7463f59a19564536a3c85158181599a4",
+            "gender": "female",
+            "first_name": "Jennifer",
+            "last_name": "Wallace",
+            "email": "jennifer_wallace@little-morris.org"
+        },
+        "staff": {
+            "id": "bb57e5bb501f4781ad98b79571b6459b",
+            "first_name": "Gloria",
+            "last_name": "Reid"
+        },
+        "transaction": [
+            {
+                "item_id": "e6d5bb5491e94c69a44cbf830f647772",
+                "quantity": 1,
+                "product_name": "Sleek Play-Doh",
+                "category": "Toy",
+                "unit_price": "384"
+            },
+            {
+                "item_id": "9fdc1bd5b5ed4eb29a2aebde5cfb9fb2",
+                "quantity": 2,
+                "product_name": "Gorgeous Black Cotton Sofa",
+                "category": "Furniture",
+                "unit_price": "183"
+            }
+        ],
+        "purchased_number_items": 2,
+        "total_amount": 750
+    },
+    {
+        "transaction_id": "8a3df12d5fed41218fc74ad5c83e55fc",
+        "store": {
+            "id": 5,
+            "name": "Notice President"
+        },
+        "customer": {
+            "id": "1d8e84a2d9d64d5cbcaef8a54a49dc51",
+            "gender": "male",
+            "first_name": "Nathan",
+            "last_name": "Evans",
+            "email": "nathan_evans@thomas.com"
+        },
+        "staff": {
+            "id": "fa14e519bc1b40a087091541f0f130b4",
+            "first_name": "Stephen",
+            "last_name": "Scott"
+        },
+        "transaction": [
+            {
+                "item_id": "2dfa27db6da34791ae02af45676f1c56",
+                "quantity": 1,
+                "product_name": "Fantastic Dresser",
+                "category": "Furniture",
+                "unit_price": "474"
+            },
+            {
+                "item_id": "e04dc598b2944da896a8e8e7515f70e9",
+                "quantity": 1,
+                "product_name": "Awesome Black Soft Wardrobe",
+                "category": "Furniture",
+                "unit_price": "260"
+            },
+            {
+                "item_id": "6fbfe85efaf84a1a9931266b40d17e19",
+                "quantity": 1,
+                "product_name": "Wooden Remote Control Car",
+                "category": "Toy",
+                "unit_price": "322"
+            }
+        ],
+        "purchased_number_items": 3,
+        "total_amount": 1056
+    }
+]

@@ -31,6 +31,30 @@ class DatabaseObject(object):
         row = self.cur.fetchmany(size)
         return row
     
+    def fetch_all(self, query):
+        self.cur.execute(query)
+        row = self.cur.fetchall()
+        return row
+    
+    def fetch_as_json(self, query, key_col):
+        self.cur.execute(query)
+        row = self.cur.fetchall()
+        col_names = [col.name for col in self.cur.description]
+        
+        def _create_dict(data, col_names, key_col):
+            key_index = col_names.index(key_col)
+            result = {}
+            for row in data:
+                key = row[key_index]
+                customer_data = {}
+                for i in range(len(col_names)):
+                    if i != key_index:
+                        customer_data[col_names[i]] = row[i]
+                result[key] = customer_data
+            return result
+        
+        return _create_dict(row, col_names, key_col)
+    
     def insert(self, data, schema, table_name):
         sql = f'''INSERT INTO {schema}.{table_name} (%s) values %s'''
         success_recs = 0

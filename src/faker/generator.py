@@ -1,6 +1,7 @@
 import uuid
 from faker import Faker
 from .custom_providers import *
+from src import utils
 
 
 faker = Faker(use_weighting=True)
@@ -96,5 +97,61 @@ def generate_products(n=10):
         product['unit_price'] = faker.product_price()
 
         output.append(product)
+
+    return output
+
+
+def generate_transactions(stores: dict, customers: dict, staffs: dict, products: dict, max_item: int, max_quantity: int, n=10):    
+    def _process_data(data, filtered_fields):
+        id = random.choice(list(data.keys()))
+        filtered_data = utils.filter_dict(data[id], filtered_fields)
+        return id, filtered_data
+    
+    output = []
+    for _ in range(n):
+        transaction = dict()
+        
+        # id
+        transaction['transaction_id'] = uuid.uuid4().hex
+        
+        # store
+        id, data = _process_data(stores, ['name'])
+        appended_results = dict(store={'id': id, **data})
+        transaction = dict(transaction, 
+                           **appended_results
+                        )
+
+        # customer
+        id, data = _process_data(customers, ['gender', 'first_name', 'last_name', 'email'])
+        appended_results = dict(customer={'id': id, **data})
+        transaction = dict(transaction, 
+                           **appended_results
+                        )
+        
+        # staffs
+        id, data = _process_data(staffs, ['first_name', 'last_name'])
+        appended_results = dict(staff={'id': id, **data})
+        transaction = dict(transaction, 
+                           **appended_results
+                        )
+        
+        # product
+        items = []
+        purchased_items_number = utils.random_int(1, max_item)
+        total_amount = 0
+        for _ in range(purchased_items_number):
+            id, data = _process_data(products, ['product_name', 'category', 'unit_price'])
+            quantity = random.randint(1, max_quantity)
+            appended_results = dict(item_id=id, quantity=quantity, **data)
+            items.append(appended_results)
+            total_amount += (int(data['unit_price']) * quantity)
+        
+        transaction = dict(transaction, 
+                           **dict(transaction=items, purchased_number_items=purchased_items_number, total_amount=total_amount)
+                        )
+
+
+
+        output.append(transaction)
 
     return output
