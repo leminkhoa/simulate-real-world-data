@@ -1,15 +1,9 @@
-import json
-import sys
-sys.path.append('../..')
 from src.log_module import create_logger
 from src.faker.generator import generate_staffs
 from src.db.db_utils import DatabaseObject, upload_file
 
 logger = create_logger()
 db_obj = DatabaseObject()
-
-
-
 
 def lambda_handler(event, context):
     """Lambda handler

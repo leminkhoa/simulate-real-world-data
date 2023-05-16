@@ -7,6 +7,7 @@ faker = Faker(use_weighting=True)
 faker.add_provider(GenderProvider)
 faker.add_provider(MembershipProvider)
 faker.add_provider(EmailDomainProvider)
+faker.add_provider(EcommerceProvider)
 
 
 def generate_stores(n=3):
@@ -80,4 +81,20 @@ def generate_staffs(store_id: int, n=2):
 
         output.append(staff)
     
+    return output
+
+
+def generate_products(n=10):
+    output = []
+    for _ in range(n):
+        product = dict()
+        # id
+        product['product_id'] = uuid.uuid4().hex
+        # product name
+        product['category'], product['product_name'] = faker.product_name()
+        # product price
+        product['unit_price'] = faker.product_price()
+
+        output.append(product)
+
     return output

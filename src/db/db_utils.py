@@ -1,9 +1,7 @@
-import yaml
 import os
 import psycopg2
 from psycopg2.extensions import AsIs
-from jinja2 import Environment, FileSystemLoader, select_autoescape
-
+from src import utils
 
 class DatabaseObject(object):
     
@@ -58,33 +56,14 @@ class DatabaseObject(object):
 
 
 def generate_sql_queries(db_folder: str, config_path: str, template_folder: str):
-    env = load_template(os.path.join(db_folder, template_folder))
-    db_config = parse_yaml(db_folder, config_path)
+    env = utils.load_template(os.path.join(db_folder, template_folder))
+    db_config = utils.parse_yaml(db_folder, config_path)
 
     sql_queries = []
     for step in db_config['steps']:
         template = env.get_template(f"{step['template']}.sql.jinja")
         sql_queries.append(template.render(**step['data']))
     return sql_queries
-        
-
-def load_template(template_folder='templates'):
-    env = Environment(
-        loader=FileSystemLoader(template_folder),
-        autoescape=select_autoescape()
-    )
-    return env
-
-
-def parse_yaml(folder, filename):
-    reader = read_file(folder, filename)
-    config = yaml.safe_load(reader)
-    return config
-
-
-def read_file(folder, filename):
-    with open(os.path.join(folder, filename), 'r') as f:
-        return f.read()
 
 
 def upload_file(db_obj, data, schema, table):

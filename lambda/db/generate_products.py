@@ -1,5 +1,5 @@
 from src.log_module import create_logger
-from src.faker.generator import generate_stores
+from src.faker.generator import generate_products
 from src.db.db_utils import DatabaseObject, upload_file
 
 logger = create_logger()
@@ -19,10 +19,10 @@ def lambda_handler(event, context):
     # params from event body
     num_recs_params = event['queryStringParameters']['num_recs']
     # generate stores
-    data = generate_stores(num_recs_params)
+    data = generate_products(num_recs_params)
     # upload to postgres
     try:
-        response = upload_file(db_obj, data, schema='dim_db', table='stores')
+        response = upload_file(db_obj, data, schema='dim_db', table='products')
     except Exception as error:
         logger.error(error)
         return {
@@ -48,7 +48,7 @@ def lambda_handler(event, context):
 
 event = {
     "queryStringParameters": {
-        "num_recs": 5
+        "num_recs": 10
     }
 }
 

@@ -1,6 +1,3 @@
-import json
-import sys
-sys.path.append('../..')
 from src.log_module import create_logger
 from src.faker.generator import generate_customers
 from src.db.db_utils import DatabaseObject, upload_file

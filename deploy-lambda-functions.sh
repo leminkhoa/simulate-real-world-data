@@ -26,8 +26,16 @@ elif [[ $1 == "staffs" ]]; then
         "deployments/generate_staffs.zip" \
         "generate_staffs"
 
+elif [[ $1 == "products" ]]; then
+    echo Build and deploy lambda function for products
+    deploy-lambda-function \
+        "lambda/db/generate_products.py" \
+        "./generate_products.py" \
+        "deployments/generate_products.zip" \
+        "generate_products"
+
 else
-    echo "This bash script receive following input: [customers, stores, staffs]. Please try again!"
+    echo "This bash script receive following input: [customers, stores, staffs, products]. Please try again!"
 
 fi
 

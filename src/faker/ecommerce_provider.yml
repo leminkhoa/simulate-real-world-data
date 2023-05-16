@@ -1,0 +1,64 @@
+category:
+  Furniture:
+    - Sofa
+    - Armchair
+    - Coffee Table
+    - Dining Table
+    - Bookshelf
+    - Desk
+    - Bed
+    - Dresser
+    - Nightstand
+    - Wardrobe
+  Sport:
+    - Basketball
+    - Soccer Ball
+    - Tennis Racket
+    - Golf Club
+    - Baseball Bat
+    - Hockey Stick
+    - Running Shoes
+    - Yoga Mat
+    - Swimming Goggles
+    - Boxing Gloves
+  Toy:
+    - Teddy Bear
+    - Dollhouse
+    - Action Figure
+    - Puzzle 
+    - Board Game 
+    - Lego Set 
+    - Play-Doh 
+    - Remote Control Car 
+    - Stuffed Animal 
+    - Toy Train
+
+material:
+  - Steel
+  - Wooden
+  - Plastic
+  - Cotton
+  - Soft
+  - Fresh
+
+color:
+  - Red
+  - Yellow
+  - Blue
+  - Green
+  - Black
+
+adjective:
+  - Small
+  - Ergonomic
+  - Rustic
+  - Intelligent
+  - Gorgeous
+  - Incredible
+  - Fantastic
+  - Practical
+  - Sleek
+  - Awesome
+  - Generic
+  - Handcrafted
+  - Handmade
