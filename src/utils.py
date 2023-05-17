@@ -1,6 +1,7 @@
 import os
 import random
 import yaml
+from datetime import datetime, timezone
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 
@@ -42,3 +43,7 @@ def random_int(start, end):
         if min >= result:
             min = result
     return min
+
+
+def get_current_datetime():
+    return datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S')

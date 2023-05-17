@@ -147,10 +147,13 @@ def generate_transactions(stores: dict, customers: dict, staffs: dict, products:
             total_amount += (int(data['unit_price']) * quantity)
         
         transaction = dict(transaction, 
-                           **dict(transaction=items, purchased_number_items=purchased_items_number, total_amount=total_amount)
+                           **dict(
+                                transaction=items, 
+                                purchased_number_items=purchased_items_number,
+                                total_amount=total_amount, 
+                                utc_dt=utils.get_current_datetime()
+                           )
                         )
-
-
 
         output.append(transaction)
 

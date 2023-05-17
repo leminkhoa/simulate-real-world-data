@@ -51,3 +51,22 @@ steps:
         product_name:   {type: text                             }
         category:       {type: text                             }
         unit_price:     {type: text                             }
+
+  
+  - template: create_db_schema
+    data: 
+      schema_name: transaction_db
+
+  - template: create_table
+    data:
+      db_schema: transaction_db
+      table_name: transactions
+      table_schema:
+        transaction_id:           {type: text, primary_key: True   }
+        store:                    {type: jsonb                     }
+        customer:                 {type: jsonb                     }
+        staff:                    {type: jsonb                     }
+        transaction:              {type: 'jsonb[]'                 }
+        purchased_number_items:   {type: int                       }
+        total_amount:             {type: int                       }
+        utc_dt:                   {type: date                      }
