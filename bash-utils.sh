@@ -16,9 +16,10 @@ function deploy-lambda-function {
 
     # Publish lambda handler
     echo 'Publish code to Lambda'
-    JSON=$(aws lambda list-layers) # Get all lambda layers
+    JSON=$(aws lambda --profile ${AWS_PROFILE} --region ${AWS_REGION} list-layers) # Get all lambda layers
 
     aws lambda update-function-code \
+        --profile ${AWS_PROFILE} \
         --function-name $4 \
         --zip-file fileb://$3
 
@@ -34,6 +35,8 @@ function deploy-lambda-function {
         variables="{DB_DATABASE=${DB_DATABASE},DB_HOSTNAME=${DB_HOSTNAME},DB_PASSWORD=${DB_PASSWORD},DB_PORT=${DB_PORT},DB_USER=${DB_USER}}"
         
         aws lambda create-function \
+        --profile ${AWS_PROFILE} \
+        --region ${AWS_REGION} \
         --function-name $4 \
         --role ${AWS_LAMBDA_ROLE_ARN} \
         --zip-file fileb://$3 \
@@ -90,6 +93,8 @@ function deploy-lambda-layer {
     # Publish to aws lambda
     echo 'Publish layer to Lambda'
     aws lambda publish-layer-version \
+        --profile ${AWS_PROFILE} \
+        --region ${AWS_REGION} \
         --layer-name ${AWS_LAMBDA_LAYER} \
         --description "Layer to be used for lambda functions in this project" \
         --content S3Bucket=${S3_BUCKET},S3Key=$1 \

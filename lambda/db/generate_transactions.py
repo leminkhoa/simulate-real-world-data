@@ -20,7 +20,7 @@ def lambda_handler(event, context):
 
     db_obj.connect()
     # params from event body
-    num_recs_params = event['queryStringParameters']['num_recs']
+    num_recs_params = event['num_recs']
     
     # fetch metadata from database
     customers = db_obj.fetch_and_process("SELECT * FROM dim_db.customers", 'customer_id')
@@ -32,7 +32,6 @@ def lambda_handler(event, context):
     data = generate_transactions(stores, customers, staffs, products, 5, 2, num_recs_params)
     success_recs = 0
     for row in data:
-        # upload to postgres
         try:
             db_obj.cur.execute('''
                 INSERT INTO transaction_db.transactions
@@ -68,10 +67,8 @@ def lambda_handler(event, context):
 '''
 # ===== Test Event ==== 
 
-event = {
-    "queryStringParameters": {
-        "num_recs": 5
-    }
+{
+    "num_recs": 1
 }
 
 '''

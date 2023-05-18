@@ -17,9 +17,11 @@ def lambda_handler(event, context):
     db_obj = DatabaseObject()
     
     # params from event body
-    num_recs_params = event['queryStringParameters']['num_recs']
+    num_recs_params = event['num_recs']
+
     # generate customers
     data = generate_customers(num_recs_params)
+    
     # upload to postgres
     try:
         response = upload_file(db_obj, data, schema='dim_db', table='customers')
@@ -46,10 +48,8 @@ def lambda_handler(event, context):
 '''
 # ===== Test Event ==== 
 
-event = {
-    "queryStringParameters": {
-        "num_recs": 100
-    }
+{
+    "num_recs": 1
 }
 
 '''

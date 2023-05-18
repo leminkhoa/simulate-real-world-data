@@ -18,8 +18,8 @@ def lambda_handler(event, context):
     db_obj = DatabaseObject()
     
     # params from event body
-    num_recs_params = event['queryStringParameters']['num_recs']
-    store_id_params = event['queryStringParameters']['store_id']
+    num_recs_params = event['num_recs']
+    store_id_params = event['store_id']
 
     # Validate store_id
     db_obj.connect()
@@ -35,7 +35,7 @@ def lambda_handler(event, context):
             "message": 'Bad Request'
         }
 
-    # generate stores
+    # generate staffs
     data = generate_staffs(store_id=store_id_params, n=num_recs_params)
 
     # upload to postgres
@@ -64,11 +64,9 @@ def lambda_handler(event, context):
 '''
 # ===== Test Event ==== 
 
-event = {
-    "queryStringParameters": {
-        "num_recs": 2,
-        "store_id": 1
-    }
+{
+    "num_recs": 1,
+    "store_id": <store_id>
 }
 
 '''
