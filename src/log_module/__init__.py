@@ -6,5 +6,7 @@ def create_logger():
     formatter = logging.Formatter("[%(asctime)s][%(filename)s:%(lineno)s] %(levelname)s - %(message)s")
     stream_handler = logging.StreamHandler()
     stream_handler.setFormatter(formatter)
+    if logger.hasHandlers():
+        logger.handlers.clear()
     logger.addHandler(stream_handler)
     return logger

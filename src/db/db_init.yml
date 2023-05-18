@@ -25,7 +25,7 @@ steps:
       db_schema: dim_db
       table_name: stores
       table_schema:
-        id:       {type: int, primary_key: True, auto_key: True}
+        id:       {type: int, primary_key: True, auto_key: True }
         name:     {type: text                                   }
         address:  {type: text                                   }
         phone:    {type: text                                   }
@@ -62,11 +62,11 @@ steps:
       db_schema: transaction_db
       table_name: transactions
       table_schema:
-        transaction_id:           {type: text, primary_key: True   }
-        store:                    {type: jsonb                     }
-        customer:                 {type: jsonb                     }
-        staff:                    {type: jsonb                     }
-        transaction:              {type: 'jsonb[]'                 }
-        purchased_number_items:   {type: int                       }
-        total_amount:             {type: int                       }
-        utc_dt:                   {type: date                      }
+        transaction_id:           {type: text, primary_key: True      }
+        store:                    {type: jsonb                        }
+        customer:                 {type: jsonb                        }
+        staff:                    {type: jsonb                        }
+        transaction:              {type: 'jsonb[]'                    }
+        purchased_number_items:   {type: int                          }
+        total_amount:             {type: int                          }
+        utc_dt:                   {type: timestamp without time zone  }

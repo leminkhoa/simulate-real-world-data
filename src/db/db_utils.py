@@ -57,7 +57,7 @@ class DatabaseObject(object):
                     customer_data = {}
                     for i in range(len(col_names)):
                         if i != key_index:
-                            customer_data[col_names[i]] = row[i]
+                            customer_data[col_names[i]] = utils.parse_variable(row[i])
                     result[key] = customer_data
                 return result
             else:
@@ -65,7 +65,7 @@ class DatabaseObject(object):
                 for row in data:
                     customer_data = {}
                     for i in range(len(col_names)):
-                        customer_data[col_names[i]] = row[i]
+                        customer_data[col_names[i]] = utils.parse_variable(row[i])
                     result.append(customer_data)
                 return result
         

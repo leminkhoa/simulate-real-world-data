@@ -47,3 +47,10 @@ def random_int(start, end):
 
 def get_current_datetime():
     return datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S')
+
+
+def parse_variable(var):
+    if isinstance(var, datetime):
+        return var.strftime('%Y-%m-%d %H:%M:%S')
+    else:
+        return var

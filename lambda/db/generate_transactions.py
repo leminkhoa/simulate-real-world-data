@@ -55,10 +55,6 @@ def lambda_handler(event, context):
             continue
         success_recs+=1
     db_obj.conn.commit()
-    
-    # Now we execute get query from the database
-    output = db_obj.fetch_and_process("SELECT * FROM transaction_db.transactions", None)
-    
     db_obj.close_conn()
     
     return {
@@ -66,7 +62,7 @@ def lambda_handler(event, context):
         "headers": {
             "Content-Type": "application/json"
         },
-        "data": output
+        "insertedRow": success_recs
     }
 
 '''
@@ -79,13 +75,3 @@ event = {
 }
 
 '''
-
-
-event = {
-    "queryStringParameters": {
-        "num_recs": 5
-    }
-}
-
-a = lambda_handler(event, {})
-print(a)

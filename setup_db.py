@@ -8,7 +8,11 @@ if __name__ == '__main__':
     db_obj.connect()
     logger.info("Successfully connected to database '{db_host}-{db}'".format(db_host=db_obj.host, db=db_obj.database.upper()))
     # Generate db queries
-    db_setup_queries = db_utils.generate_sql_queries('src/db', 'db_init.yml', 'templates')
+    db_setup_queries = db_utils.generate_sql_queries(
+                                    db_folder='src/db',
+                                    config_path='db_init.yml',
+                                    template_folder='templates'
+                                )
     # Execute set up
     for query in db_setup_queries:
         logger.info("Execute query: \n{query}\n".format(query=query))
