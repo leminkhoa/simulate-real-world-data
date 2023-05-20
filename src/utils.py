@@ -45,8 +45,12 @@ def random_int(start, end):
     return min
 
 
-def get_current_datetime():
+def get_current_str_datetime():
     return datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S')
+
+
+def get_current_datetime():
+    return datetime.now(timezone.utc)
 
 
 def parse_variable(var):
@@ -54,3 +58,27 @@ def parse_variable(var):
         return var.strftime('%Y-%m-%d %H:%M:%S')
     else:
         return var
+
+
+def parse_num_recs(num_recs: str):
+    """If num_recs is a list in string format, return list. Else return integer
+    """
+    if num_recs.startswith('[') and num_recs.endswith(']'):
+        try:
+            num_recs = num_recs[1:-1]
+            num_recs = num_recs.split('-')
+            num_recs = [int(x) for x in num_recs]
+            
+            if len(num_recs) != 2:
+                raise ValueError("Number of records should only have two elements for start and end range")
+            
+            if num_recs[0] >= num_recs[1]:
+                raise ValueError("Start must be smaller than end")
+            
+            return num_recs
+            
+        except ValueError as e:
+            raise e
+        
+    else:
+        return int(num_recs)

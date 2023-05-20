@@ -18,7 +18,7 @@ def lambda_handler(event, context):
     db_obj = DatabaseObject()
     
     # params from event body
-    num_recs_params = event['num_recs']
+    num_recs_params = int(event['num_recs'])
     store_id_params = event['store_id']
 
     # Validate store_id
@@ -29,9 +29,6 @@ def lambda_handler(event, context):
         logger.error("provided store id does not exist in database")
         return {
             "statusCode": 400,
-            "headers": {
-                "Content-Type": "application/json"
-            },
             "message": 'Bad Request'
         }
 
@@ -45,18 +42,12 @@ def lambda_handler(event, context):
         logger.error(error)
         return {
             "statusCode": 500,
-            "headers": {
-                "Content-Type": "application/json"
-            },
             "message": 'Internal Server Error'
         }
 
 
     return {
         "statusCode": 200,
-        "headers": {
-            "Content-Type": "application/json"
-        },
         "insertedRow": response
     }
 
@@ -65,7 +56,7 @@ def lambda_handler(event, context):
 # ===== Test Event ==== 
 
 {
-    "num_recs": 1,
+    "num_recs": "1",
     "store_id": <store_id>
 }
 

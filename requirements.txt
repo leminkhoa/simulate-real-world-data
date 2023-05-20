@@ -2,3 +2,4 @@ faker
 jinja2
 pyyaml
 psycopg2-binary
+boto3

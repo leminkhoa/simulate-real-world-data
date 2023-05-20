@@ -5,6 +5,7 @@ function deploy-lambda-function {
         # arg 2: temp_path
         # arg 3: function_zip_package
         # arg 4: function_name
+        # arg 5: variables, E.g. {DB_DATABASE=${DB_DATABASE},DB_HOSTNAME=${DB_HOSTNAME}
 
     # Load env
     source ./set_env.sh
@@ -43,7 +44,8 @@ function deploy-lambda-function {
         --runtime python3.9 \
         --handler $4.lambda_handler \
         --layer ${aws_layer_arn} \
-        --environment Variables=${variables}
+        --environment Variables=$5 \
+        --timeout 10
         echo Successfully created function $4
     fi
 

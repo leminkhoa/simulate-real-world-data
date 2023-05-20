@@ -151,7 +151,7 @@ def generate_transactions(stores: dict, customers: dict, staffs: dict, products:
                                 transaction=items, 
                                 purchased_number_items=purchased_items_number,
                                 total_amount=total_amount, 
-                                utc_dt=utils.get_current_datetime()
+                                utc_dt=utils.get_current_str_datetime()
                            )
                         )
 

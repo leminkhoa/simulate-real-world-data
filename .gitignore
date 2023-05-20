@@ -161,4 +161,5 @@ cython_debug/
 
 
 deployments/*
+!deployments/README.md
 set_env.sh

@@ -12,7 +12,7 @@ class DatabaseObject(object):
         self.user       =   os.environ.get('DB_USER' ,      'postgres'      )
         self.password   =   os.environ.get('DB_PASSWORD',   'abc'           )
         self.host       =   os.environ.get('DB_HOSTNAME',   'localhost'     )
-        self.database   =   os.environ.get('DB_DATABASE',   'operation'      )
+        self.database   =   os.environ.get('DB_DATABASE',   'operation'     )
         self.port       =   os.environ.get('DB_PORT',       '5432'          )    
 
     def connect(self):

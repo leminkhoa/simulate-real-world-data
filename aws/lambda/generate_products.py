@@ -1,5 +1,5 @@
 from src.log_module import create_logger
-from src.faker.generator import generate_customers
+from src.faker.generator import generate_products
 from src.db.db_utils import DatabaseObject, upload_file
 
 logger = create_logger()
@@ -17,30 +17,24 @@ def lambda_handler(event, context):
     db_obj = DatabaseObject()
     
     # params from event body
-    num_recs_params = event['num_recs']
+    num_recs_params = int(event['num_recs'])
 
-    # generate customers
-    data = generate_customers(num_recs_params)
+    # generate stores
+    data = generate_products(num_recs_params)
     
     # upload to postgres
     try:
-        response = upload_file(db_obj, data, schema='dim_db', table='customers')
+        response = upload_file(db_obj, data, schema='dim_db', table='products')
     except Exception as error:
         logger.error(error)
         return {
             "statusCode": 500,
-            "headers": {
-                "Content-Type": "application/json"
-            },
             "message": 'Internal Server Error'
         }
 
 
     return {
         "statusCode": 200,
-        "headers": {
-            "Content-Type": "application/json"
-        },
         "insertedRow": response
     }
 
@@ -49,7 +43,7 @@ def lambda_handler(event, context):
 # ===== Test Event ==== 
 
 {
-    "num_recs": 1
+    "num_recs": "1"
 }
 
 '''

@@ -1,0 +1,226 @@
+---
+swagger: "2.0"
+info:
+  version: "2023-05-19T15:21:40Z"
+  title: "simulate-data-api"
+basePath: "/dev"
+schemes:
+- "https"
+paths:
+  /customers:
+    post:
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "customerBodyValidator"
+        required: true
+        schema:
+          $ref: "#/definitions/customerBodyValidator"
+      responses:
+        "200":
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+    options:
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+            Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Headers:
+              type: "string"
+  /products:
+    post:
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "productBodyValidator"
+        required: true
+        schema:
+          $ref: "#/definitions/productBodyValidator"
+      responses:
+        "200":
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+    options:
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+            Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Headers:
+              type: "string"
+  /staffs:
+    post:
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "staffBodyValidator"
+        required: true
+        schema:
+          $ref: "#/definitions/staffBodyValidator"
+      responses:
+        "200":
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+    options:
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+            Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Headers:
+              type: "string"
+  /stores:
+    post:
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "storeBodyValidator"
+        required: true
+        schema:
+          $ref: "#/definitions/storeBodyValidator"
+      responses:
+        "200":
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+    options:
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+            Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Headers:
+              type: "string"
+  /transactions:
+    post:
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "transactionBodyValidator"
+        required: true
+        schema:
+          $ref: "#/definitions/transactionBodyValidator"
+      responses:
+        "200":
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+    options:
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+            Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Headers:
+              type: "string"
+definitions:
+  Empty:
+    type: "object"
+    title: "Empty Schema"
+  customerBodyValidator:
+    type: "object"
+    required:
+    - "num_recs"
+    properties:
+      num_recs:
+        type: "string"
+    title: "Customer Request Schema"
+  productBodyValidator:
+    type: "object"
+    required:
+    - "num_recs"
+    properties:
+      num_recs:
+        type: "string"
+    title: "Customer Request Schema"
+  storeBodyValidator:
+    type: "object"
+    required:
+    - "num_recs"
+    properties:
+      num_recs:
+        type: "string"
+    title: "Customer Request Schema"
+  transactionBodyValidator:
+    type: "object"
+    required:
+    - "num_recs"
+    properties:
+      num_recs:
+        type: "string"
+    title: "Customer Request Schema"
+  staffBodyValidator:
+    type: "object"
+    required:
+    - "num_recs"
+    - "store_id"
+    properties:
+      num_recs:
+        type: "string"
+      store_id:
+        type: "integer"
+    title: "Customer Request Schema"
