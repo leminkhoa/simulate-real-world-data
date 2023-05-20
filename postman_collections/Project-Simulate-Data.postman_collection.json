@@ -1,9 +1,7 @@
 {
 	"info": {
-		"_postman_id": "ecba0025-72f7-4f50-8b95-cf7ae145b7b6",
 		"name": "Project-Simulate-Data",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "14928843"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{

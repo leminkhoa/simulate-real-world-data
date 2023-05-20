@@ -85,7 +85,7 @@ function deploy-lambda-layer {
 
     # Upload to s3
     echo 'Start uploading layer to s3'
-    aws s3 cp ${1} s3://${S3_BUCKET}/
+    aws s3 cp ${1} s3://${S3_LAMBDA_BUCKET}/
 
     # Delete resources
     echo 'Start clean up resources'
@@ -99,7 +99,7 @@ function deploy-lambda-layer {
         --region ${AWS_REGION} \
         --layer-name ${AWS_LAMBDA_LAYER} \
         --description "Layer to be used for lambda functions in this project" \
-        --content S3Bucket=${S3_BUCKET},S3Key=$1 \
+        --content S3Bucket=${S3_LAMBDA_BUCKET},S3Key=$1 \
         --compatible-runtimes python3.9
 
     echo 'Finished!'
