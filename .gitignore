@@ -160,6 +160,8 @@ cython_debug/
 #.idea/
 
 
+# Project ignore files
 deployments/*
 !deployments/README.md
+*.drawio
 set_env.sh
